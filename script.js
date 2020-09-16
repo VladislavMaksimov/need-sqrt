@@ -87,6 +87,7 @@ const changeLanguage = (language) => {
 const returnSQRT = () => {
     const numberBox = document.getElementsByClassName('number')[0];
     const answerBox = document.getElementById('answer-render');
+    const n = document.getElementsByClassName('precision-input')[0].value;
     let number = numberBox.value;
     let isNegative = false;
 
@@ -100,7 +101,7 @@ const returnSQRT = () => {
     else
         answerBox.innerText = '';
 
-    answerBox.innerText += Math.sqrt(number);
+    answerBox.innerText += Math.sqrt(number).toFixed(n);
 
     if (isNegative)
         answerBox.innerText += 'i';

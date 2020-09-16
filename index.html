@@ -12,13 +12,20 @@
         <div class="page">
             <h2 id="name"> Квадратный корень </h2>
             <div class="workspace">
+
                 <div class="insert">
                     <div class="insert-field">
                         <label class='num-label'> Введите число: </label>
                         <input type="number" class="number">
                         <button id="sqrt"> Вычислить </button>
                     </div>
+
+                    <div class="precision-field">
+                        <label id="precision-label"> Знаков после запятой: </label>
+                        <input type="number" class="precision-input" value="2">
+                    </div>
                 </div>
+
                 <div class="lang">
                     <div class="lang-choose">
                         <h3 class="lang-name"> Язык: </h3>
@@ -28,6 +35,7 @@
                         <button class="lang-var"  value="chinese"> Китайский </button>
                     </div>
                 </div>
+
                 <div class="answer">
                     <div class="answer-field">
                         <label id="answer-label"> Ответ: </label>
