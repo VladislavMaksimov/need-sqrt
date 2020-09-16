@@ -24,6 +24,32 @@ const languages = {
         "num-label": "Enter the number:",
         "num-button": "Calculate",
         "answer-label": "Answer:"
+    },
+    "spanish": {
+        "name": "Raíz cuadrada",
+        "lang-name": "Idioma:",
+        "lang-var": [
+            "Ruso",
+            "Inglés",
+            "Española",
+            "Chino"
+        ],
+        "num-label": "Ingrese el numero:",
+        "num-button": "Calcular",
+        "answer-label": "Responder:"
+    },
+    "chinese": {
+        "name": "平方根",
+        "lang-name": "语言:",
+        "lang-var": [
+            "俄语",
+            "英语",
+            "西班牙语",
+            "中文"
+        ],
+        "num-label": "输入号码:",
+        "num-button": "计算",
+        "answer-label": "回答:"
     }
 }
 
@@ -50,6 +76,12 @@ const changeLanguage = (language) => {
 
     if (language == "russian")
         changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel);
+
+    if (language == "spanish")
+        changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel);
+
+    if (language == "chinese")
+        changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel);
 }
 
 const returnSQRT = () => {
