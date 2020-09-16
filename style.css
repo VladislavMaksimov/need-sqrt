@@ -11,7 +11,7 @@ div, body, p {
 #root {
     height: 100%;
     min-height: 100vh;
-    background: #aae6d5;
+    background: #ffffff;
 
     display: flex;
     justify-content: center;
@@ -19,14 +19,16 @@ div, body, p {
 }
 
 .page {
-    width: 40em;
-    height: 40em;
+    width: 30em;
+    height: 30em;
 
     padding: 2%;
-    background: white;
+    background: #f7faff;
     border-radius: 10px;
 
     position: relative;
+    color: #434e74;
+    box-shadow: 0 0 16px black;
 }
 
 #name {
@@ -46,19 +48,28 @@ div, body, p {
 }
 
 .insert {
-    width: 100%;
+    width: 17em;
     height: 100%;
-    padding: 20%;
+    padding: 10%;
 }
 
 .insert-field {
     height: 100%;
+    padding: 4%;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    background: #8cedde;
+    background: #ffffff;
+    color: black;
+    box-shadow: 0 0 6px black;
+}
+
+.insert-area {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .lang {
@@ -81,11 +92,12 @@ div, body, p {
 
 .lang-var {
     border: none;
-    width: 10em;
-    padding: 10%;
-    background: #56ba8d;
+    width: 9em;
+    padding: 15%;
+    background: #ffffff;
     border-radius: 6px;
     cursor: pointer;
+    box-shadow: 0 0 6px black;
 }
 
 .precision {
@@ -96,34 +108,48 @@ div, body, p {
 }
 
 .precision-field {
-    height: 100%;
-    border-radius: 6px;
+    height: 50%;
     display: flex;
     align-items: center;
-    justify-content: space-around;
     flex-direction: column;
-    background: #8cedde;
+}
+
+#sqrt {
+    font-size: 1.2em;
+    height: 2em;
+    width: 6em;
+
+    background: #0073f7;
+    color: white;
+    border: none;
+    border-radius: 6px;
 }
 
 .answer {
-    width: 100%;
+    width: 17em;
     height: 100%;
-    padding: 20%;
+    padding: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .answer-field {
-    height: 100%;
+    height: 5em;
     border-radius: 6px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     flex-direction: column;
-    background: #8cedde;
+    background: #ffffff;
+    color: black;
+    font-size: 1.5em;
+    box-shadow: 0 0 6px black;
 }
 
 #answer-render {
     width: 90%;
-    height: 50%;
+    height: 37%;
     background: white;
     border: 1px solid black;
     overflow: auto;
@@ -133,4 +159,5 @@ div, body, p {
     position: absolute;
     right: 2%;
     bottom: 2%;
+    color: white;
 }

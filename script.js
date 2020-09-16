@@ -10,7 +10,9 @@ const languages = {
         ],
         "num-label": "Введите число:",
         "num-button": "Вычислить",
-        "answer-label": "Ответ:"
+        "answer-label": "Ответ:",
+        "precision-label": "Знаков после запятой:",
+        "info": "Техподдержка"
     },
     "english": {
         "name": "Square root",
@@ -23,7 +25,9 @@ const languages = {
         ],
         "num-label": "Enter the number:",
         "num-button": "Calculate",
-        "answer-label": "Answer:"
+        "answer-label": "Answer:",
+        "precision-label": "Decimal places:",
+        "info": "Technical support"
     },
     "spanish": {
         "name": "Raíz cuadrada",
@@ -36,7 +40,9 @@ const languages = {
         ],
         "num-label": "Ingrese el numero:",
         "num-button": "Calcular",
-        "answer-label": "Responder:"
+        "answer-label": "Responder:",
+        "precision-label": "Lugares decimales:",
+        "info": "Soporte técnico"
     },
     "chinese": {
         "name": "平方根",
@@ -49,11 +55,13 @@ const languages = {
         ],
         "num-label": "输入号码:",
         "num-button": "计算",
-        "answer-label": "回答:"
+        "answer-label": "回答:",
+        "precision-label": "小数位数:",
+        "info": "技术支援"
     }
 }
 
-const changeLangTo = (language, name, langName, langVars, numLabel, numButton, answerLabel) => {
+const changeLangTo = (language, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info) => {
     name.innerText = language.name;
     langName.innerText = language["lang-name"];
     for (let i = 0; i < langVars.length; i++)
@@ -61,6 +69,8 @@ const changeLangTo = (language, name, langName, langVars, numLabel, numButton, a
     numLabel.innerText = language["num-label"];
     numButton.innerText = language["num-button"];
     answerLabel.innerText = language["answer-label"];   
+    precisionLabel.innerText = language["precision-label"];
+    info.innerText = language["info"];
 }
 
 const changeLanguage = (language) => {
@@ -70,18 +80,20 @@ const changeLanguage = (language) => {
     const numLabel = document.getElementsByClassName('num-label')[0];
     const numButton = document.getElementById('sqrt');
     const answerLabel = document.getElementById('answer-label');
+    const precisionLabel = document.getElementById('precision-label');
+    const info = document.getElementById('info');
 
     if (language == "english")
-        changeLangTo(languages.english, name, langName, langVars, numLabel, numButton, answerLabel);
+        changeLangTo(languages.english, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
 
     if (language == "russian")
-        changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel);
+        changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
 
     if (language == "spanish")
-        changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel);
+        changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
 
     if (language == "chinese")
-        changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel);
+        changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
 }
 
 const returnSQRT = () => {
