@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> SQRT </title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div class="page">
+            <h2 id="name"> Квадратный корень </h2>
+            <div class="workspace">
+                <div class="insert">
+                    <div class="insert-field">
+                        <label class='num-label'> Введите число: </label>
+                        <input type="number" class="number">
+                        <button id="sqrt"> Вычислить </button>
+                    </div>
+                </div>
+                <div class="lang">
+                    <div class="lang-choose">
+                        <h3 class="lang-name"> Язык: </h3>
+                        <button class="lang-var" value="russian"> Русский </button>
+                        <button class="lang-var"  value="english"> Английский </button>
+                        <button class="lang-var"  value="russian"> Испанский </button>
+                        <button class="lang-var"  value="russian"> Китайский </button>
+                    </div>
+                </div>
+                <div class="answer">
+                    <div class="answer-field">
+                        <label id="answer-label"> Ответ: </label>
+                        <div id="answer-render"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
