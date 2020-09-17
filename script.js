@@ -14,7 +14,8 @@ const languages = {
         "num-button": "Вычислить",
         "answer-label": "Ответ:",
         "precision-label": "Знаков после запятой:",
-        "info": "Техподдержка"
+        "info": "Техподдержка",
+        "doc": "Документация"
     },
     "english": {
         "name": "Square root",
@@ -29,7 +30,8 @@ const languages = {
         "num-button": "Calculate",
         "answer-label": "Answer:",
         "precision-label": "Decimal places:",
-        "info": "Technical support"
+        "info": "Technical support",
+        "doc": "Documentation"
     },
     "spanish": {
         "name": "Raíz cuadrada",
@@ -44,7 +46,8 @@ const languages = {
         "num-button": "Calcular",
         "answer-label": "Responder:",
         "precision-label": "Lugares decimales:",
-        "info": "Soporte técnico"
+        "info": "Soporte técnico",
+        "doc": "Documentación"
     },
     "chinese": {
         "name": "平方根",
@@ -59,11 +62,12 @@ const languages = {
         "num-button": "计算",
         "answer-label": "回答:",
         "precision-label": "小数位数:",
-        "info": "技术支援"
+        "info": "技术支援",
+        "doc": "文献资料"
     }
 }
 
-const changeLangTo = (language, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info) => {
+const changeLangTo = (language, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info, doc) => {
     name.innerText = language.name;
     langName.innerText = language["lang-name"];
     for (let i = 0; i < langVars.length; i++)
@@ -73,6 +77,7 @@ const changeLangTo = (language, name, langName, langVars, numLabel, numButton, a
     answerLabel.innerText = language["answer-label"];   
     precisionLabel.innerText = language["precision-label"];
     info.innerText = language["info"];
+    doc.innerText = language["doc"];
 }
 
 const changeLanguage = (language) => {
@@ -84,18 +89,23 @@ const changeLanguage = (language) => {
     const answerLabel = document.getElementById('answer-label');
     const precisionLabel = document.getElementById('precision-label');
     const info = document.getElementById('info');
+    const doc = document.getElementById('doc');
 
     if (language == "english")
-        changeLangTo(languages.english, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
+        changeLangTo(languages.english, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
+            doc);
 
     if (language == "russian")
-        changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
+        changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
+            doc);
 
     if (language == "spanish")
-        changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
+        changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
+            doc);
 
     if (language == "chinese")
-        changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
+        changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
+            doc);
 }
 
 const isNumberOk = (number) => {
