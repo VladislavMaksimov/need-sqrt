@@ -98,12 +98,25 @@ const changeLanguage = (language) => {
         changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info);
 }
 
+const isNumberOk = (number) => {
+    if (number === '')
+        return 'Input number!';
+
+    return "";
+}
+
 const returnSQRT = () => {
     const numberBox = document.getElementsByClassName('number')[0];
     const answerBox = document.getElementById('answer-render');
     const n = Number(document.getElementsByClassName('precision-input')[0].value);
     let number = numberBox.value;
     let isNegative = false;
+
+    const checkNum = isNumberOk(number);
+    if (checkNum !== '') {
+        alert(checkNum);
+        return;
+    }
 
     if (number < 0) {
         answerBox.innerText = ''
@@ -127,7 +140,7 @@ const returnSQRT = () => {
 }
 
 window.addEventListener('load', () => {
-    console.log(Number.MAX_SAFE_INTEGER)
+    //console.log(Number.MAX_SAFE_INTEGER)
     const langButtons = document.getElementsByClassName('lang-var');
     for (let i = 0; i < langButtons.length; i++)
         langButtons[i].addEventListener('click', changeLanguage.bind(this, langButtons[i].value));

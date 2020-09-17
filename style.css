@@ -162,6 +162,13 @@ div, body, p {
     color: #434e74;
 }
 
+#doc {
+    position: absolute;
+    right: 25%;
+    bottom: 2%;
+    color: #434e74;
+}
+
 @media screen and (max-width: 525px) {
     .page {
         width: 100%;
