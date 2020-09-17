@@ -1,4 +1,5 @@
 const BigNumber = require('bignumber.js');
+let nowLang = "russian";
 
 const languages = {
     "russian": {
@@ -15,7 +16,9 @@ const languages = {
         "answer-label": "Ответ:",
         "precision-label": "Знаков после запятой:",
         "info": "Техподдержка",
-        "doc": "Документация"
+        "doc": "Документация",
+        "num-alert": "Введите корректное число!",
+        "pre-alert": "Введите корректную точность!",
     },
     "english": {
         "name": "Square root",
@@ -31,7 +34,9 @@ const languages = {
         "answer-label": "Answer:",
         "precision-label": "Decimal places:",
         "info": "Technical support",
-        "doc": "Documentation"
+        "doc": "Documentation",
+        "num-alert": "Input correct number!",
+        "pre-alert": "Input correct precision!"
     },
     "spanish": {
         "name": "Raíz cuadrada",
@@ -47,7 +52,9 @@ const languages = {
         "answer-label": "Responder:",
         "precision-label": "Lugares decimales:",
         "info": "Soporte técnico",
-        "doc": "Documentación"
+        "doc": "Documentación",
+        "num-alert": "Ingrese el número correcto!",
+        "pre-alert": "Ingrese la precisión correcta!"
     },
     "chinese": {
         "name": "平方根",
@@ -63,7 +70,9 @@ const languages = {
         "answer-label": "回答:",
         "precision-label": "小数位数:",
         "info": "技术支援",
-        "doc": "文献资料"
+        "doc": "文献资料",
+        "num-alert": "输入正确的号码!",
+        "pre-alert": "输入正确的精度!"
     }
 }
 
@@ -99,18 +108,32 @@ const changeLanguage = (language) => {
         changeLangTo(languages.russian, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
             doc);
 
-    if (language == "spanish")
+    if (language == "spanish") {
         changeLangTo(languages.spanish, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
             doc);
+    }
 
     if (language == "chinese")
         changeLangTo(languages.chinese, name, langName, langVars, numLabel, numButton, answerLabel, precisionLabel, info,
             doc);
+
+    nowLang = language;
 }
 
-const isNumberOk = (number) => {
+const isInputOk = (number, precision) => {
+
     if (number === '')
-        return 'Input number!';
+        return languages[nowLang]['num-alert'];
+    if (precision === '' || precision[0] === '-')
+        return languages[nowLang]['pre-alert'];
+
+    /*const numRegexp = new RegExp('^(-?\d+(\.|\,)?\d*)+$');
+    const preRegexp = new RegExp('\D');
+
+    if (number.match(numRegexp))
+        return 'Incorrect number!';
+    if (precision.match(preRegexp))
+        return 'Incorrect precision!';*/ 
 
     return "";
 }
@@ -118,15 +141,17 @@ const isNumberOk = (number) => {
 const returnSQRT = () => {
     const numberBox = document.getElementsByClassName('number')[0];
     const answerBox = document.getElementById('answer-render');
-    const n = Number(document.getElementsByClassName('precision-input')[0].value);
+    const precision = document.getElementsByClassName('precision-input')[0].value;
     let number = numberBox.value;
     let isNegative = false;
 
-    const checkNum = isNumberOk(number);
+    const checkNum = isInputOk(number, precision);
     if (checkNum !== '') {
         alert(checkNum);
         return;
     }
+
+    const n = Number(precision);
 
     if (number < 0) {
         answerBox.innerText = ''
