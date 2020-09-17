@@ -1,3 +1,5 @@
+const BigNumber = require('bignumber.js');
+
 const languages = {
     "russian": {
         "name": "Квадратный корень",
@@ -99,7 +101,7 @@ const changeLanguage = (language) => {
 const returnSQRT = () => {
     const numberBox = document.getElementsByClassName('number')[0];
     const answerBox = document.getElementById('answer-render');
-    const n = document.getElementsByClassName('precision-input')[0].value;
+    const n = Number(document.getElementsByClassName('precision-input')[0].value);
     let number = numberBox.value;
     let isNegative = false;
 
@@ -109,17 +111,23 @@ const returnSQRT = () => {
         number = number.substring(1);
     }
     else if (number > 0)
-        answerBox.innerText = '±';
+        answerBox.innerText = '\xb1';
     else
         answerBox.innerText = '';
 
-    answerBox.innerText += Math.sqrt(number).toFixed(n);
+    if (Number(number) <= Number.MAX_SAFE_INTEGER)
+        answerBox.innerText += Math.sqrt(number).toFixed(n);
+    else {
+        let bigNum = new BigNumber(number);
+        answerBox.innerText += bigNum.squareRoot().toExponential(n);
+    }
 
     if (isNegative)
         answerBox.innerText += 'i';
 }
 
 window.addEventListener('load', () => {
+    console.log(Number.MAX_SAFE_INTEGER)
     const langButtons = document.getElementsByClassName('lang-var');
     for (let i = 0; i < langButtons.length; i++)
         langButtons[i].addEventListener('click', changeLanguage.bind(this, langButtons[i].value));
